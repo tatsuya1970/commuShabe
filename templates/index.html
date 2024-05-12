@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Quote Matching</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">名言判定</h1>
+        <p>以下にテキストを入力してください。</p>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="text">テキスト入力:</label>
+                <input type="text" class="form-control" id="text" name="text" required>
+            </div>
+            <button type="submit" class="btn btn-primary">予測</button>
+        </form>
+        {% if text %}
+    <div class="alert alert-secondary mt-3" role="alert">
+        <strong>入力されたテキスト:</strong> {{ text }}
+    </div>
+{% endif %}
+
+
+{% if result %}
+<div class="alert alert-info mt-3" role="alert">
+    <strong>結果:</strong> {{ result }}
+</div>
+{% endif %}
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
